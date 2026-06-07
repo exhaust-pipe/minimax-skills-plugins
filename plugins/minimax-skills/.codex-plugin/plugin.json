@@ -1,0 +1,43 @@
+{
+  "name": "minimax-skills",
+  "version": "1.0.0",
+  "description": "MiniMax AI skills library for frontend, fullstack, Android, iOS, shader, GIF sticker, document, presentation, spreadsheet, and multimodal media workflows",
+  "author": {
+    "name": "MiniMax AI"
+  },
+  "homepage": "https://github.com/MiniMax-AI/skills",
+  "repository": "https://github.com/MiniMax-AI/skills",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "frontend",
+    "fullstack",
+    "android",
+    "ios",
+    "shader",
+    "gif",
+    "sticker",
+    "pdf",
+    "pptx",
+    "xlsx",
+    "excel",
+    "spreadsheet",
+    "docx",
+    "word",
+    "document",
+    "multimodal",
+    "video",
+    "image",
+    "audio",
+    "music",
+    "minimax"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "MiniMax Skills",
+    "shortDescription": "MiniMax AI skills library",
+    "longDescription": "MiniMax AI skills library for frontend, fullstack, Android, iOS, shader, GIF sticker, document, presentation, spreadsheet, and multimodal media workflows",
+    "composerIcon": "./assets/logo.png",
+    "logo": "./assets/logo.png"
+  }
+}
