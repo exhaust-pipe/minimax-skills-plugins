@@ -1,17 +1,26 @@
 {
-  "name": "minimax-skills",
-  "description": "MiniMax AI skills library for frontend, fullstack, mobile, document, presentation, shader, and multimodal media workflows",
+  "name": "minimax-skills-plugins",
+  "description": "Pluginized fork of the MiniMax AI skills library for frontend, fullstack, mobile, document, presentation, shader, and multimodal media workflows",
   "owner": {
-    "name": "MiniMax AI"
+    "name": "exhaust-pipe"
   },
   "plugins": [
     {
       "name": "minimax-skills",
       "description": "MiniMax AI skills library for frontend, fullstack, Android, iOS, shader, GIF sticker, document, presentation, spreadsheet, and multimodal media workflows",
       "version": "1.0.0",
-      "source": "./",
+      "source": "./plugins/minimax-skills",
       "author": {
         "name": "MiniMax AI"
+      }
+    },
+    {
+      "name": "pptx-plugin",
+      "description": "PPT generation and editing skills",
+      "version": "1.0.0",
+      "source": "./plugins/pptx-plugin",
+      "author": {
+        "name": "yuban"
       }
     }
   ]
