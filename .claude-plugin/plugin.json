@@ -5,8 +5,9 @@
   "author": {
     "name": "MiniMax AI"
   },
-  "homepage": "https://github.com/MiniMax-AI/skills",
-  "repository": "https://github.com/MiniMax-AI/skills",
+  "homepage": "https://github.com/exhaust-pipe/minimax-skills-plugins",
+  "repository": "https://github.com/exhaust-pipe/minimax-skills-plugins",
   "license": "MIT",
-  "keywords": ["skills", "frontend", "fullstack", "android", "ios", "shader", "gif", "sticker", "pdf", "pptx", "presentation", "xlsx", "excel", "spreadsheet", "docx", "word", "document", "multimodal", "video", "image", "audio", "music", "minimax"]
+  "keywords": ["skills", "frontend", "fullstack", "android", "ios", "shader", "gif", "sticker", "pdf", "pptx", "presentation", "xlsx", "excel", "spreadsheet", "docx", "word", "document", "multimodal", "video", "image", "audio", "music", "minimax"],
+  "skills": "./plugins/minimax-skills/skills/"
 }

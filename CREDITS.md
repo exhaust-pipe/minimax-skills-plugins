@@ -1,5 +1,7 @@
 # Credits & Acknowledgments
 
+[中文版](./CREDITS_zh.md)
+
 MiniMax Skills builds upon ideas and work from the open-source community. We are grateful to the following projects and authors whose contributions helped shape skills in this repository.
 
 ## frontend-dev
@@ -33,4 +35,4 @@ MiniMax restructured the workflow-based guide into a reference-based format and 
 
 ---
 
-If you believe your work has been included in this repository without proper attribution, please [open an issue](https://github.com/MiniMax-AI/skills/issues) and we will address it promptly.
+If you believe your work has been included in this repository without proper attribution, please [open an issue](https://github.com/exhaust-pipe/minimax-skills-plugins/issues) and we will address it promptly.

@@ -1,17 +1,17 @@
-# Installing MiniMax Skills for Cursor
+# 为 Cursor 安装 MiniMax Skills
 
-[中文](./INSTALL_zh.md)
+[English](./INSTALL.md)
 
-Cursor installation for this pluginized repository has not been verified. If your Cursor build supports a local skills path, clone this repository and point Cursor at `plugins/minimax-skills/skills/`.
+这个插件化仓库的 Cursor 安装流程尚未验证。如果你的 Cursor 版本支持本地 skills 路径，请克隆本仓库，并将 Cursor 指向 `plugins/minimax-skills/skills/`。
 
-Issues and PRs that document a verified Cursor install flow are welcome.
+欢迎提交 issue 或 PR，补充经过验证的 Cursor 安装流程。
 
-## Prerequisites
+## 前置条件
 
-- Cursor installed
+- 已安装 Cursor
 - Git
 
-## Installation
+## 安装
 
 ### macOS / Linux
 
@@ -19,7 +19,7 @@ Issues and PRs that document a verified Cursor install flow are welcome.
 git clone https://github.com/exhaust-pipe/minimax-skills-plugins.git ~/.cursor/minimax-skills-plugins
 ```
 
-Set Cursor's skills path to:
+将 Cursor 的 skills 路径设置为：
 
 ```text
 ~/.cursor/minimax-skills-plugins/plugins/minimax-skills/skills/
@@ -31,19 +31,19 @@ Set Cursor's skills path to:
 git clone https://github.com/exhaust-pipe/minimax-skills-plugins.git "$env:USERPROFILE\.cursor\minimax-skills-plugins"
 ```
 
-Set Cursor's skills path to:
+将 Cursor 的 skills 路径设置为：
 
 ```text
 C:\Users\YOUR_USERNAME\.cursor\minimax-skills-plugins\plugins\minimax-skills\skills\
 ```
 
-Replace `YOUR_USERNAME` with your Windows account name.
+将 `YOUR_USERNAME` 替换为你的 Windows 账号名。
 
-After saving the path, restart Cursor or reload the window so it rescans local skills.
+保存路径后，重启 Cursor 或重新加载窗口，让它重新扫描本地 skills。
 
-## Verify
+## 验证
 
-Confirm the clone exists and contains `SKILL.md` files:
+确认 clone 存在，并且包含 `SKILL.md` 文件：
 
 ### macOS / Linux
 
@@ -59,7 +59,7 @@ Get-ChildItem "$env:USERPROFILE\.cursor\minimax-skills-plugins\plugins\minimax-s
 }
 ```
 
-## Updating
+## 更新
 
 ### macOS / Linux
 
@@ -74,7 +74,7 @@ Set-Location "$env:USERPROFILE\.cursor\minimax-skills-plugins"
 git pull
 ```
 
-## Uninstalling
+## 卸载
 
 ### macOS / Linux
 
@@ -88,10 +88,10 @@ rm -rf ~/.cursor/minimax-skills-plugins
 Remove-Item -Recurse -Force "$env:USERPROFILE\.cursor\minimax-skills-plugins"
 ```
 
-## VS Code Note
+## VS Code 说明
 
-This repository does not currently ship a standalone VS Code extension.
+本仓库目前不提供独立的 VS Code 扩展。
 
-If you use VS Code, the recommended options are:
-- run a supported CLI tool such as Codex, Claude Code, or OpenCode inside the VS Code integrated terminal
-- use Cursor if you want native local-skills configuration from this repository
+如果你使用 VS Code，推荐选项是：
+- 在 VS Code 集成终端中运行受支持的 CLI 工具，例如 Codex、Claude Code 或 OpenCode
+- 如果你希望使用本仓库的原生本地 skills 配置，请使用 Cursor

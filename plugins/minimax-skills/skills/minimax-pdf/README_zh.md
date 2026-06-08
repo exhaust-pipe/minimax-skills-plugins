@@ -1,11 +1,11 @@
 # minimax-pdf
 
-[中文版](./README_zh.md)
+[English](./README.md)
 
-A Claude skill for creating and editing visually polished PDFs.  
-Three routes. One design system. Tokens flow from content analysis through every renderer.
+用于创建和编辑视觉精美 PDF 的 Claude skill。  
+三条路线，一个设计系统。Tokens 从内容分析流经每个 renderer。
 
-## Quick start
+## 快速开始
 
 ```bash
 bash scripts/make.sh check   # verify deps
@@ -15,7 +15,7 @@ bash scripts/make.sh demo    # → demo.pdf
 
 ---
 
-## Route A: CREATE — generate a new PDF
+## Route A: CREATE — 生成新的 PDF
 
 ```bash
 bash scripts/make.sh run \
@@ -27,7 +27,7 @@ bash scripts/make.sh run \
   --out     report.pdf
 ```
 
-**`--type` options:**
+**`--type` 选项：**
 
 | Type | Palette | Cover pattern | Google Fonts (cover) |
 |---|---|---|---|
@@ -47,7 +47,7 @@ bash scripts/make.sh run \
 | `terminal` | Near-black, neon green accent | `terminal` | Space Mono |
 | `poster` | White, near-black accent | `poster` | Barlow Condensed / Courier Prime |
 
-**content.json block types:**
+**content.json 块类型：**
 
 ```json
 [
@@ -74,7 +74,7 @@ bash scripts/make.sh run \
 
 ---
 
-## Route B: FILL — fill form fields in an existing PDF
+## Route B: FILL — 填写现有 PDF 的表单字段
 
 ```bash
 # See what fields the PDF has
@@ -90,15 +90,15 @@ bash scripts/make.sh fill \
 bash scripts/make.sh fill --input form.pdf --out filled.pdf --data values.json
 ```
 
-Field value rules:
-- `text` → any string
-- `checkbox` → `"true"` or `"false"`
-- `dropdown` → must match a choice value shown by `--inspect`
-- `radio` → must match a radio value shown by `--inspect`
+字段值规则：
+- `text` → 任意字符串
+- `checkbox` → `"true"` 或 `"false"`
+- `dropdown` → 必须匹配 `--inspect` 显示的选项值
+- `radio` → 必须匹配 `--inspect` 显示的 radio 值
 
 ---
 
-## Route C: REFORMAT — apply design to an existing document
+## Route C: REFORMAT — 将设计应用到现有文档
 
 ```bash
 bash scripts/make.sh reformat \
@@ -109,11 +109,11 @@ bash scripts/make.sh reformat \
   --out    output.pdf
 ```
 
-Supported input: `.md` `.txt` `.pdf` `.json`
+支持输入：`.md` `.txt` `.pdf` `.json`
 
 ---
 
-## Architecture
+## 架构
 
 ```
 SKILL.md                      ← Claude entry point, route table
@@ -130,9 +130,9 @@ scripts/
   reformat_parse.py           ← doc → content.json           [REFORMAT]
 ```
 
-Design tokens (`tokens.json`) flow from `palette.py` to every renderer — cover and body are always visually consistent.
+设计 tokens（`tokens.json`）从 `palette.py` 流向每个 renderer，确保 cover 和 body 始终视觉一致。
 
-## Dependencies
+## 依赖
 
 | Tool | Used by | Install |
 |---|---|---|
@@ -142,11 +142,11 @@ Design tokens (`tokens.json`) flow from `palette.py` to every renderer — cover
 | Node.js 18+ | `render_cover.js` | system |
 | `playwright` + Chromium | `render_cover.js` | `npm install -g playwright && npx playwright install chromium` |
 
-## License
+## 许可证
 
 MIT
 
-## Document types
+## 文档类型
 
 | `--type` | Mood | Cover pattern | Cover fonts |
 |---|---|---|---|
@@ -162,8 +162,8 @@ MIT
 | `frame` | Classical | `frame` | Cormorant / Crimson Pro |
 | `editorial` | Editorial | `editorial` | Bebas Neue / Libre Franklin |
 
-Cover fonts load via Google Fonts `@import` at render time — no local caching.
-Body pages always use system fonts (Times / Helvetica) via ReportLab.
+Cover fonts 在渲染时通过 Google Fonts `@import` 加载，不做本地缓存。
+Body pages 始终通过 ReportLab 使用系统字体（Times / Helvetica）。
 
 ## content.json schema
 
@@ -190,7 +190,7 @@ Body pages always use system fonts (Times / Helvetica) via ReportLab.
 ]
 ```
 
-## Architecture
+## 架构
 
 ```
 SKILL.md                  ← Claude entry point, routing only
@@ -204,9 +204,9 @@ scripts/
   merge.py                ← cover.pdf + body.pdf → final.pdf + QA report
 ```
 
-Design tokens (color, typography, spacing) are written once by `palette.py` and consumed by every downstream script. This guarantees visual consistency between cover and body without any manual coordination.
+设计 tokens（颜色、排版、间距）由 `palette.py` 一次写入，并由所有下游脚本消费。这能保证 cover 和 body 之间视觉一致，无需人工协调。
 
-## Dependencies
+## 依赖
 
 | Tool | Purpose | Install |
 |---|---|---|
@@ -216,9 +216,9 @@ Design tokens (color, typography, spacing) are written once by `palette.py` and 
 | Node.js 18+ | Cover rendering | system |
 | `playwright` | Headless Chromium for cover | `npm install -g playwright && npx playwright install chromium` |
 
-Run `bash scripts/make.sh check` to verify everything at once.  
-Run `bash scripts/make.sh fix` to auto-install what is missing.
+运行 `bash scripts/make.sh check` 可一次性验证所有依赖。  
+运行 `bash scripts/make.sh fix` 可自动安装缺失依赖。
 
-## License
+## 许可证
 
 MIT

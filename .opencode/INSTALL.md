@@ -1,5 +1,11 @@
 # Installing MiniMax Skills for OpenCode
 
+[中文](./INSTALL_zh.md)
+
+OpenCode installation for this pluginized repository has not been verified. The steps below are local symlink notes for OpenCode builds that support a local skill directory.
+
+Issues and PRs that document a verified OpenCode install flow are welcome.
+
 ## Prerequisites
 
 - [OpenCode.ai](https://opencode.ai) installed
@@ -9,23 +15,23 @@
 ### macOS / Linux
 
 ```bash
-git clone https://github.com/MiniMax-AI/skills.git ~/.minimax-skills
+git clone https://github.com/exhaust-pipe/minimax-skills-plugins.git ~/.minimax-skills-plugins
 
-mkdir -p ~/.config/opencode/skills
-for skill in ~/.minimax-skills/skills/*/; do
+mkdir -p ~/.config/opencode/skill
+for skill in ~/.minimax-skills-plugins/plugins/minimax-skills/skills/*/; do
     skill_name=$(basename "$skill")
-    ln -s "$skill" ~/.config/opencode/skills/minimax-"$skill_name"
+    ln -s "$skill" ~/.config/opencode/skill/minimax-"$skill_name"
 done
 ```
 
 ### Windows (PowerShell)
 
 ```powershell
-git clone https://github.com/MiniMax-AI/skills.git "$env:USERPROFILE\.minimax-skills"
+git clone https://github.com/exhaust-pipe/minimax-skills-plugins.git "$env:USERPROFILE\.minimax-skills-plugins"
 
-New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.config\opencode\skills"
-Get-ChildItem "$env:USERPROFILE\.minimax-skills\skills" -Directory | ForEach-Object {
-    New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\.config\opencode\skills\minimax-$($_.Name)" -Target $_.FullName
+New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.config\opencode\skill"
+Get-ChildItem "$env:USERPROFILE\.minimax-skills-plugins\plugins\minimax-skills\skills" -Directory | ForEach-Object {
+    New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\.config\opencode\skill\minimax-$($_.Name)" -Target $_.FullName
 }
 ```
 
@@ -47,11 +53,16 @@ Verify by asking: "List available skills"
 - **pptx-generator** — Generate, edit, and read PowerPoint presentations
 - **minimax-xlsx** — Open, create, read, analyze, edit, or validate Excel/spreadsheet files
 - **minimax-docx** — Professional DOCX document creation, editing, and formatting using OpenXML SDK
+- **vision-analysis** — Analyze, describe, OCR, and extract information from images
+- **minimax-multimodal-toolkit** — Generate voice, music, video, and image content via MiniMax APIs
+- **minimax-music-gen** — Generate vocal songs, instrumentals, and covers with MiniMax Music API
+- **buddy-sings** — Generate a personalized song for a Claude Code buddy
+- **minimax-music-playlist** — Build music taste profiles and generate personalized playlists
 
 ## Updating
 
 ```bash
-cd ~/.minimax-skills && git pull
+cd ~/.minimax-skills-plugins && git pull
 ```
 
 Symlinks will automatically point to the updated content — no need to re-link.
@@ -61,25 +72,25 @@ Symlinks will automatically point to the updated content — no need to re-link.
 ### macOS / Linux
 
 ```bash
-rm -f ~/.config/opencode/skills/minimax-*
-rm -rf ~/.minimax-skills
+rm -f ~/.config/opencode/skill/minimax-*
+rm -rf ~/.minimax-skills-plugins
 ```
 
 ### Windows (PowerShell)
 
 ```powershell
-Get-ChildItem "$env:USERPROFILE\.config\opencode\skills\minimax-*" | Remove-Item -Force
-Remove-Item -Recurse -Force "$env:USERPROFILE\.minimax-skills"
+Get-ChildItem "$env:USERPROFILE\.config\opencode\skill\minimax-*" | Remove-Item -Force
+Remove-Item -Recurse -Force "$env:USERPROFILE\.minimax-skills-plugins"
 ```
 
 ## Troubleshooting
 
 ### Skills not found
 
-1. Verify symlinks exist: `ls -la ~/.config/opencode/skills/`
+1. Verify symlinks exist: `ls -la ~/.config/opencode/skill/`
 2. Each skill folder should contain a `SKILL.md` file
 3. Restart OpenCode after installation
 
 ## Getting Help
 
-- Report issues: https://github.com/MiniMax-AI/skills/issues
+- Report issues: https://github.com/exhaust-pipe/minimax-skills-plugins/issues

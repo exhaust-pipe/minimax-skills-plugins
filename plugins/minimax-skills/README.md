@@ -4,6 +4,8 @@
 
 > **Beta** — This project is under active development. Skills, APIs, and configuration formats may change without notice. We welcome feedback and contributions.
 
+This package is now part of a pluginized repository. The MiniMax skills that previously lived in the repository-level `skills/` directory now live in `plugins/minimax-skills/skills/`.
+
 Development skills for AI coding agents. Plug into your favorite AI coding tool and get structured, production-quality guidance for frontend, fullstack, Android, iOS, and shader development.
 
 ## Skills
@@ -28,78 +30,14 @@ Development skills for AI coding agents. Plug into your favorite AI coding tool 
 | `buddy-sings` | Let your Claude Code pet (/buddy) sing a personalized song. Interprets the pet's name and personality into a unique cached vocal identity, auto-gathers context (conversation, memory, git history) for themed lyrics, and generates music via minimax-music-gen. | Official |
 | `minimax-music-playlist` | Generate personalized playlists by analyzing your music taste. Builds a taste profile (genre, mood, language, vocal preferences), plans a themed tracklist, generates songs with album cover art, and refines the profile from feedback. | Official |
 
-## Installation
-
-### Claude Code
-
-```bash
-claude plugin marketplace add https://github.com/MiniMax-AI/skills
-claude plugin install minimax-skills
-```
-
-### Cursor
-
-```bash
-git clone https://github.com/MiniMax-AI/skills.git ~/.cursor/minimax-skills
-```
-
-Add to your Cursor settings — point the skills path to `~/.cursor/minimax-skills/skills/`.
-For Windows setup and verification, see [`.cursor-plugin/INSTALL.md`](.cursor-plugin/INSTALL.md).
-
-### Codex
-
-```bash
-git clone https://github.com/MiniMax-AI/skills.git ~/.codex/minimax-skills
-
-mkdir -p ~/.agents/skills
-ln -s ~/.codex/minimax-skills/skills ~/.agents/skills/minimax-skills
-```
-
-Restart Codex to discover the skills. See [`.codex/INSTALL.md`](.codex/INSTALL.md) for Windows instructions and details.
-
-### OpenCode
-
-```bash
-git clone https://github.com/MiniMax-AI/skills.git ~/.minimax-skills
-
-mkdir -p ~/.config/opencode/skills
-ln -s ~/.minimax-skills/skills/* ~/.config/opencode/skills/
-```
-
-Restart OpenCode to discover the skills. See [`.opencode/INSTALL.md`](.opencode/INSTALL.md) for details.
-
-### VS Code
-
-This repository does not currently ship a standalone VS Code extension.
-
-If you use VS Code, the supported approach is to run one of the supported CLI tools inside the integrated terminal:
-- Codex
-- Claude Code
-- OpenCode
-
-If you want native local-skills configuration from this repo, use Cursor and follow [`.cursor-plugin/INSTALL.md`](.cursor-plugin/INSTALL.md).
-
-## Contributing
-
-We welcome contributions! Before submitting a PR, please read:
-
-- [CONTRIBUTING.md](./CONTRIBUTING.md) — PR format, skill structure requirements, and development guidelines
-- [PR Review Rules](./.claude/skills/pr-review/SKILL.md) — automated validation checks and quality review criteria
-
-You can run the validation script locally before submitting:
-
-```bash
-python .claude/skills/pr-review/scripts/validate_skills.py
-```
-
 ## ⭐ Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=MiniMax-AI/skills&type=Date)](https://star-history.com/#MiniMax-AI/skills&Date)
 
 ## Credits
 
-Some skills in this repository are inspired by or derived from work by the open-source community. See [CREDITS.md](./CREDITS.md) for full acknowledgments.
+Some skills in this repository are inspired by or derived from work by the open-source community. See [CREDITS.md](../../CREDITS.md) for full acknowledgments.
 
 ## License
 
-[MIT](./LICENSE)
+[MIT](../../LICENSE)
