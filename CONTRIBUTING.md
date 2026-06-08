@@ -1,4 +1,6 @@
-# Contributing to MiniMax Skills
+# Contributing to MiniMax Skills Plugins
+
+[中文版](./CONTRIBUTING_zh.md)
 
 Thank you for your interest in contributing! This document covers PR requirements, skill structure specifications, and development guidelines.
 
@@ -24,6 +26,7 @@ Common prefixes: `feat` (new skill or feature), `fix` (bug fix), `docs` (documen
 - Add a new skill
 - Fix a bug in an existing skill
 - Improve an existing skill
+- Update plugin packaging, marketplace metadata, or installation docs
 
 Do not bundle unrelated changes together.
 
@@ -36,20 +39,31 @@ Every PR must include:
 
 ## Skill Structure
 
+Skills now live inside plugin roots. The original repository-level `skills/` directory has moved to `plugins/minimax-skills/skills/`.
+
 ### Directory Layout
 
 ```
-skills/<skill-name>/
-├── SKILL.md                 # Required — entry point with YAML frontmatter
-├── references/              # Optional — detailed reference docs
-│   └── *.md
-└── scripts/                 # Optional — helper scripts
-    ├── *.py
-    └── requirements.txt     # Required if scripts/ exists
+plugins/<plugin-name>/
+├── .codex-plugin/
+│   └── plugin.json          # Required for Codex plugin installation
+├── README.md                # Plugin overview and skill table
+├── README_zh.md             # Chinese version when README.md exists
+└── skills/
+    └── <skill-name>/
+        ├── SKILL.md         # Required — entry point with YAML frontmatter
+        ├── references/      # Optional — detailed reference docs
+        │   └── *.md
+        └── scripts/         # Optional — helper scripts
+            ├── *.py
+            └── requirements.txt
 ```
 
 - The directory name is the skill identifier. Use lowercase `kebab-case` (e.g., `gif-sticker-maker`).
 - `SKILL.md` is the only required file. All other files and directories are optional.
+- The Codex marketplace entrypoint is `.agents/plugins/marketplace.json`.
+- The main MiniMax skills plugin is `plugins/minimax-skills/`.
+- The PPTX plugin is `plugins/pptx-plugin/`.
 
 ### SKILL.md Frontmatter
 
@@ -92,7 +106,7 @@ Your `SKILL.md` should document the required environment variables as a prerequi
 
 ### README Sync
 
-When adding a new skill, update both `README.md` and `README_zh.md` to include your skill in the skill table. Community-submitted skills should set the Source column to `Community`.
+When adding a new skill, update the plugin-level `README.md` and `README_zh.md` to include your skill in the skill table. Community-submitted skills should set the Source column to `Community`. Update the root `README.md` and `README_zh.md` only when installation, repository layout, or plugin packaging changes.
 
 ## Guidelines
 
@@ -134,10 +148,11 @@ If your skill includes helper scripts (typically in a `scripts/` directory):
 You can run the validation script locally to check part of the requirements before submitting:
 
 ```bash
-python .claude/skills/pr-review/scripts/validate_skills.py
+python .agents/skills/pr-review/scripts/validate_skills.py --path plugins/minimax-skills/skills
+python .agents/skills/pr-review/scripts/validate_skills.py --path plugins/pptx-plugin/skills
 ```
 
-You can also use the [pr-review skill](./.claude/skills/pr-review/SKILL.md) to let your AI coding agent assist with the review.
+You can also use the [pr-review skill](./.agents/skills/pr-review/SKILL.md) to let your AI coding agent assist with the review.
 
 1. Submit your PR following the requirements above
 2. At least one maintainer will review

@@ -1,5 +1,7 @@
 # PPTX Plugin
 
+[中文版](./README_zh.md)
+
 ## Quick Reference
 
 | Task | Guide |
