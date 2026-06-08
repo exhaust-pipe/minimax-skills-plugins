@@ -20,7 +20,7 @@ Review pull requests against repository standards. Two-phase process: automated 
 Run the validation script to check structural requirements:
 
 ```bash
-python .claude/skills/pr-review/scripts/validate_skills.py
+python .Codex/skills/pr-review/scripts/validate_skills.py
 ```
 
 The script checks:
