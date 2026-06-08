@@ -4,20 +4,26 @@ These rules are enforced by `scripts/validate_skills.py`. PRs that violate ERROR
 
 ## Directory Structure
 
-Every skill must follow this layout:
+Every skill must live under a plugin root and follow this layout:
 
 ```
-skills/<skill-name>/
-├── SKILL.md                 # Required
-├── references/              # Optional
-│   └── *.md
-└── scripts/                 # Optional
-    ├── *.py
-    └── requirements.txt     # Required if scripts/ exists
+plugins/<plugin-name>/
+├── .codex-plugin/
+│   └── plugin.json          # Required for Codex plugin installation
+└── skills/
+    └── <skill-name>/
+        ├── SKILL.md         # Required
+        ├── references/      # Optional
+        │   └── *.md
+        └── scripts/         # Optional
+            ├── *.py
+            └── requirements.txt
 ```
 
 - Directory name must be lowercase `kebab-case` (e.g., `gif-sticker-maker`)
 - `SKILL.md` is the only required file
+- Validate skills by passing the plugin skill directory explicitly, for example `--path plugins/minimax-skills/skills`
+- Do not review against legacy root-level `skills/`, `.claude/skills/`, or `.codex/skills/` paths
 
 ## SKILL.md Frontmatter
 

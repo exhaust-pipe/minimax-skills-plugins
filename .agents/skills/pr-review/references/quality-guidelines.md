@@ -56,4 +56,4 @@ If the skill includes helper scripts in `scripts/`:
 
 ## 7. README Sync
 
-When a new skill is added, both `README.md` and `README_zh.md` should be updated with the new skill in the table. Community-submitted skills should set the Source column to `Community`.
+When a new skill is added, the relevant plugin-level `README.md` and `README_zh.md` should be updated with the new skill in the table. Community-submitted skills should set the Source column to `Community`. Root README files only need updates when repository-level installation, layout, or plugin packaging changes.
